@@ -4,12 +4,10 @@ public class SumInt {
     public static void main(String[] args) {
         String input = "88 65 90 22 31";
         String[] numbers = input.split(" ");
-        int size = numbers.length;
-        int[] arr = new int[size];
         System.out.println(Arrays.toString(numbers));
         intSum(numbers);
-        impNum(numbers, size, arr);
-        biggerNum(numbers, size, arr);
+        impNum(numbers);
+        biggerNum(numbers);
     }
 
     static void intSum(String[] numbers) {
@@ -20,24 +18,26 @@ public class SumInt {
         System.out.println(sum);
     }
 
-    static void impNum(String[] numbers,int size,int arr[]) {
+    static void impNum(String[] numbers) {
         int countOdd = 0;
-        for (int i = 0; i < size; i++) {
-            arr[i] = Integer.parseInt(numbers[i]);
-            if (arr[i] % 2 != 0) {
+        int result[] = new int[numbers.length];
+        for (int i = 0; i < numbers.length; i++) {
+            result[i] = Integer.parseInt(numbers[i]);
+            if (result[i] % 2 != 0) {
                 countOdd++;
             }
         }
         System.out.print(countOdd);
     }
 
-    static void biggerNum(String[] numbers, int size, int arr[]) {
+    static void biggerNum(String[] numbers) {
         System.out.println();
-        int newNr = 50;
-        for (int i = 0; i < size; i++) {
-            arr[i] = Integer.parseInt(numbers[i]);
-            if (arr[i] > newNr) {
-                System.out.print(arr[i] + ",");
+        int minNr = 50;
+        int result[] = new int[numbers.length];
+        for (int i = 0; i < numbers.length; i++) {
+            result[i] = Integer.parseInt(numbers[i]);
+            if (result[i] > minNr) {
+                System.out.print(result[i] + ",");
             }
         }
     }
