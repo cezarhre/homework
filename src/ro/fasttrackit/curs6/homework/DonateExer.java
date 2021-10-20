@@ -4,16 +4,17 @@ import java.util.Random;
 
 public class DonateExer {
     public static void main(String[] args) {
-        int randnum;
+        int randNum;
         int sum = 0;
         Random don = new Random();
         boolean correct = false;
-        randnum = don.nextInt(10);
         while (!correct) {
-            if (sum + randnum <= 10000) {
-                sum += randnum;
+            int randomNum = don.nextInt(50);
+            if (sum <= 100) {
+                sum += randomNum;
+                System.out.println("New donation: " + randomNum);
             } else {
-                System.out.print("Congratulations!! " + sum);
+                System.out.println("Congratulations!! Donations are: " + sum);
                 correct = true;
             }
         }
