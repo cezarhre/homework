@@ -4,43 +4,28 @@ import java.util.Arrays;
 
 public class StringInt {
     public static void main(String[] args) {
-        String input = "88 65 90 22 31";
-        String[] numbers = input.split(" ");
-        System.out.println(Arrays.toString(numbers));
-        intSum(numbers);
-        impNum(numbers);
-        biggerNum(numbers);
-    }
-
-    static void intSum(String[] numbers) {
+        String str = "123456";
         int sum = 0;
-        for (String number : numbers) {
-            sum += Integer.parseInt(number);
-        }
-        System.out.println(sum);
-    }
+        int odd = 0;
+        int min = 3;
+        int res = 0;
+        System.out.print("Numere mai mari decit " + min + ": ");
 
-    static void impNum(String[] numbers) {
-        int countOdd = 0;
-        int result[] = new int[numbers.length];
-        for (int i = 0; i < numbers.length; i++) {
-            result[i] = Integer.parseInt(numbers[i]);
-            if (result[i] % 2 != 0) {
-                countOdd++;
+        for (int i = 0; i < str.length(); i++) {
+            String nr = "" + str.charAt(i);
+            int numbers = Integer.valueOf(nr);
+            sum += numbers;
+            if (numbers % 2 != 0) {
+                odd++;
+            }
+            if (numbers > min) {
+                res = numbers;
+                System.out.print(res + ",");
             }
         }
-        System.out.print(countOdd);
-    }
-
-    static void biggerNum(String[] numbers) {
         System.out.println();
-        int minNr = 50;
-        int result[] = new int[numbers.length];
-        for (int i = 0; i < numbers.length; i++) {
-            result[i] = Integer.parseInt(numbers[i]);
-            if (result[i] > minNr) {
-                System.out.print(result[i] + ",");
-            }
-        }
+        System.out.println("Suma numereler: " + sum);
+        System.out.println("Numere impare " + odd);
+
     }
 }
